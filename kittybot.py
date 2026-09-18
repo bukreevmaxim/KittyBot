@@ -166,16 +166,20 @@ def handle_text(vk, message):
         random_id=random.randint(0, 100000)
     )
 
-for event in longpoll.listen():
-    if event.type == VkBotEventType.MESSAGE_NEW:
-        message = event.object.message
-        text = message.get('text', '').strip().lower()
-        if text:
-            if text == 'начать':
-                handle_start(vk, vk_session, message)
-            elif text == 'хочу котика':
-                handle_cat(vk, vk_session, message)
-            elif text == 'вернуть кнопки':
-                handle_def_buttons(vk, message)
-            else:
-                handle_text(vk, message)
+def main():
+    for event in longpoll.listen():
+        if event.type == VkBotEventType.MESSAGE_NEW:
+            message = event.object.message
+            text = message.get('text', '').strip().lower()
+            if text:
+                if text == 'начать':
+                    handle_start(vk, vk_session, message)
+                elif text == 'хочу котика':
+                    handle_cat(vk, vk_session, message)
+                elif text == 'вернуть кнопки':
+                    handle_def_buttons(vk, message)
+                else:
+                    handle_text(vk, message)
+
+if __name__ == '__main__':
+    main()
