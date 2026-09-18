@@ -7,7 +7,7 @@ import io
 
 from pprint import pprint
 
-VK_TOKEN = 'vk1.a.rOTvy6Y8TtcUaC4SuUnaYoUVflZZ-cvEaaXUxb4AkYQ0Vv0f_ApSlKM_eSFszlOv1Evj2S9X_qkLuAxIEn-adXdCPwYSTsTZ2r7ArUFnxoxVjZzftK_VsNlRX2_U9qKScI8aoMG2S5uZj3s72X91WyBJWoXEHjSvdrSUVuDb-8O2P2kQP2zY1GsmNsz9gtvw0z58UYpTGO9iiahZDlKVRg'
+VK_TOKEN = 'vk1.a.0LdpztSkvHA2RtON0R79rVl5wVRTQbVgC_gqDnirRfNQTeasX7osxonm6nJIV2bs84b7Z-vSjMMiTHfJ_RLU-6HsaPc7MP1FrO0nUzQL9XM95f_QgBzktLR6CSTPKTGuD-7rnUOYfkKeaRwq9RXXTMtQFXk2xIoxDw1zdWAkKyPn95gEH_KdKm36TbugXaoAUy6qyPg0QKqt2t4qFmCzrw'
 GROUP_ID = 241517733
 
 # Авторизация
