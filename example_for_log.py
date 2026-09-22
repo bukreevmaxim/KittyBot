@@ -23,6 +23,10 @@ handler = RotatingFileHandler(
     backupCount=5,
     encoding='utf-8',
     )
+formatter = logging.Formatter(
+    '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 logger.debug('123')

@@ -8,20 +8,37 @@ import os
 import random
 import requests
 import vk_api
+from logging.handlers import RotatingFileHandler
 
 load_dotenv()
 VK_TOKEN = os.getenv('VK_TOKEN')
 GROUP_ID = os.getenv('GROUP_ID')
 
-logging.basicConfig(
-    # по желанию можно добавить, чтобы записывалось в файл
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO,
-)
+# logging.basicConfig(
+#     # по желанию можно добавить, чтобы записывалось в файл
+#     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+#     filename='main.log',
+#     filemode='a',
+#     level=logging.INFO,
+# )
 
 vk_session = vk_api.VkApi(token=VK_TOKEN)
 vk = vk_session.get_api()
 longpoll = VkBotLongPoll(vk_session, GROUP_ID)
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+# Указываем обработчик логов:
+formatter = logging.Formatter(
+    '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+handler = RotatingFileHandler(
+    'my_logger.log',
+    maxBytes=50000000,
+    backupCount=5
+    )
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 keyboard = {
     "one_time": False,
